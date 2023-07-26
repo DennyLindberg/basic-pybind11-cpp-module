@@ -85,7 +85,7 @@ workspace "pybind11"
 
     filter{}
 
-project "pybind11 testing"
+project "python_pyd"
     kind "SharedLib"
     targetdir("temp/build")
     targetname("pybind_test") -- this name must match the module name in the macro PYBIND11_MODULE(group6_pybind_test, m)
@@ -94,4 +94,11 @@ project "pybind11 testing"
     postbuildcommands {
         "{COPY} %{cfg.targetdir}/pybind_test.pyd %{cfg.targetdir}/../../"
     }
+
+project "cpp_main"
+    kind "ConsoleApp"
+    targetdir("temp/build")
+    targetname("main")
+    targetextension(".exe")
+    files ({"main.cpp"})
 
