@@ -25,14 +25,14 @@ py::array_t<double> add_arrays(py::array_t<double> input1, py::array_t<double> i
 	double	*ptr1 = (double *)buf1.ptr,
 			*ptr2 = (double *)buf2.ptr,
 			*ptr3 = (double *)buf3.ptr;
-	int X = buf1.shape[0];
-	int Y = buf1.shape[1];
+	py::ssize_t X = buf1.shape[0];
+	py::ssize_t Y = buf1.shape[1];
 
-	for (int idx = 0; idx < X; idx++)
+	for (py::ssize_t idx = 0; idx < X; idx++)
 	{
-		for (int idy = 0; idy < Y; idy++)
+		for (py::ssize_t idy = 0; idy < Y; idy++)
 		{
-			int index = idx*Y + idy;
+			py::ssize_t index = idx*Y + idy;
 			ptr3[index] = ptr1[index] + ptr2[index];
 		}
 	}

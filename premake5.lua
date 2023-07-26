@@ -1,5 +1,5 @@
 -- run premake command to generate a solution file in the temp folder
---  premake5 vs2017
+--  premake5 vs2022
 --  premake5 gmake2
 --  premake5 xcode4
 
@@ -44,7 +44,7 @@ end
 workspace "pybind11"
     location("temp/") -- temporary files (sln, proj, obj, pdb, ilk, etc)
     language "C++"
-    architecture "x32"
+    architecture "x64"
     staticruntime "on"
     flags       { "MultiProcessorCompile" }
 
@@ -57,19 +57,19 @@ workspace "pybind11"
         optimize "On"
 
     if os.host() == "windows" then
-        cppdialect "C++17"
+        cppdialect "C++20"
         systemversion("latest")
         system      "windows"
-        platforms { "win32" }   
+        platforms { "win64" }   
 
         symbolspath '$(TargetName).pdb'
         libdirs     { pythonLibPath }
         links { pythonLib }
         
     else -- MACOSX
-        cppdialect "gnu++17"
+        cppdialect "gnu++20"
         system      "macosx"
-        platforms { "macosx32" }
+        platforms { "macosx64" }
 
         -- MacOS has not been tested! It is possible that the python variables won't work
         -- and one must instead retrieve the framework paths.
