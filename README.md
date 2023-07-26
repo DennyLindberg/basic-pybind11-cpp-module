@@ -13,9 +13,10 @@
 - see `premake5.lua` for how the Python includes and libs are resolved.
 - run `premake5 vs2022` in the terminal to generate the visual studio solution. (`premake5 xcode4` on Mac)
 - open `temp/pybind11 tests.sln`.
-- open `pybind_test.cpp` in the solution and try to understand how the PYBIND11_MODULE macro works.
+- open `pybind_test.cpp` in the solution project `python_pyd` and try to understand how the PYBIND11_MODULE macro works.
 - build the project (shortcut F7).
-- execute `python main.py` in the terminal.
+- execute `python main_pyd.py` in the terminal inside the python folder.
+- you can also open `main.cpp` in the solution project `cpp_main` to run the python interpreter from C++.
 
 # Please note!
     The .pyd-file is copied to the same folder as main.py (the root). This means that the module is only available from there. If you want the module to be available globally on your computer, then you have to copy it to one of the default python interpreter search paths.

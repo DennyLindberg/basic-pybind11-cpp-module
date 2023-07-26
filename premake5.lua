@@ -92,7 +92,7 @@ project "python_pyd"
     targetextension(".pyd")
     files ({"pybind_test.cpp"})
     postbuildcommands {
-        "{COPY} %{cfg.targetdir}/pybind_test.pyd %{cfg.targetdir}/../../"
+        "{COPY} %{cfg.targetdir}/pybind_test.pyd %{cfg.targetdir}/../../python"
     }
 
 project "cpp_main"
